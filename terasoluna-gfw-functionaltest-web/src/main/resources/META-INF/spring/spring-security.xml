@@ -92,11 +92,11 @@
 
   <sec:user-service id="userService">
     <sec:user name="user1" authorities="ROLE_USER"
-      password="a1e490624b08a698d0ba51ab5a5e356d2c075fea1e8916963996a294e43276c06cf8e8ef764662e4" /> <!-- the raw password is "user1" -->
+      password="{pbkdf2}a1e490624b08a698d0ba51ab5a5e356d2c075fea1e8916963996a294e43276c06cf8e8ef764662e4" /> <!-- the raw password is "user1" -->
     <sec:user name="user2" authorities="ROLE_USER"
-      password="8bff8f6acaf0b5054144c8572ce7bad7f5fd3c2ce89ebd596486d6f0cb22d8727df8e407c1c2c4b5" /> <!-- the raw password is "user2" -->
+      password="{pbkdf2}8bff8f6acaf0b5054144c8572ce7bad7f5fd3c2ce89ebd596486d6f0cb22d8727df8e407c1c2c4b5" /> <!-- the raw password is "user2" -->
     <sec:user name="user3" authorities="ROLE_USER"
-      password="536eef609acf691dca6f5b53468af62aa0479f03eb599ff44b1140080a616056a8c84b68a10229ea" /> <!-- the raw password is "user3" -->
+      password="{pbkdf2}536eef609acf691dca6f5b53468af62aa0479f03eb599ff44b1140080a616056a8c84b68a10229ea" /> <!-- the raw password is "user3" -->
   </sec:user-service>
 
 </beans>
