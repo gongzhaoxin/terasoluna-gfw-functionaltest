@@ -15,14 +15,25 @@
  */
 package org.terasoluna.gfw.functionaltest.app.welcome;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class WelcomeController {
 
-    @RequestMapping("/")
-    public String index() {
+    private static final Logger logger = LoggerFactory
+            .getLogger(WelcomeController.class);
+
+    @RequestMapping()
+    public String index(HttpServletRequest request) {
+        logger.info("ServletPath is " + request.getServletPath());
+        logger.info("PathInfo is " + request.getPathInfo());
+        logger.info("RequestURI is " + request.getRequestURI());
+        logger.info("Welcome home!");
         return "welcome/index";
     }
 }
