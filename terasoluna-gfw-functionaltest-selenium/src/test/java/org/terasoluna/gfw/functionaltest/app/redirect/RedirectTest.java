@@ -141,6 +141,33 @@ public class RedirectTest extends FunctionTestSupport {
         // confirms that redirect to application internal page after login transition.
         assertThat(driver.findElement(By.xpath("/html/body/div/h2")).getText(),
                 is(expectedMessage));
+
+        driver.get(getPackageRootUrl());
+
+        driver.findElement(By.id("listWithExternalPathWithContextPath"))
+                .click();
+        driver.findElement(By.id("btn1")).click();
+
+        inputFieldAccessor.overrideValue(By.id("username"), "user1", driver);
+        inputFieldAccessor.overrideValue(By.id("password"), "user1", driver);
+
+        // confirms that login page contains redirectTo hidden tag with external link with ContextPath
+        assertThat(getRedirectValue(), is(
+                "http://www.google.com/terasoluna-gfw-functionaltest-web/redirect/externalPathWithContextPath"));
+
+        // screen capture
+        screenCapture.save(driver);
+
+        driver.findElement(By.id("btn1")).click();
+
+        // check include "/terasoluna-gfw-functionaltest-web" in URL.
+        assertTrue(driver.getCurrentUrl().contains(
+                "/terasoluna-gfw-functionaltest-web"));
+
+        // confirms that redirect to application internal page after login transition.
+        assertThat(driver.findElement(By.xpath("/html/body/div/h2")).getText(),
+                is("Redirect (externalPathWithContextPath)"));
+
     }
 
     @Test
