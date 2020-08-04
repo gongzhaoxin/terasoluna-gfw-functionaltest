@@ -9,7 +9,7 @@ addons:
     packages:
       - postgresql-11
       - postgresql-client-11
-  firefox: "latest"
+  firefox: "latest-esr"
 cache:
   directories:
     - $HOME/.m2
